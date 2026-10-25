@@ -1,0 +1,36 @@
+{
+  "dataset": "MUSE full bilingual dictionaries, French-source directions",
+  "counts": {
+    "train": 220087,
+    "validation": 12271,
+    "test": 12329,
+    "source_words_by_language_pair": {
+      "fr-en": 96775,
+      "fr-de": 61048,
+      "fr-es": 86864
+    },
+    "rows_by_direction": {
+      "train": {
+        "fr-en": 87100,
+        "fr-de": 54857,
+        "fr-es": 78130
+      },
+      "validation": {
+        "fr-en": 4807,
+        "fr-de": 3121,
+        "fr-es": 4343
+      },
+      "test": {
+        "fr-en": 4868,
+        "fr-de": 3070,
+        "fr-es": 4391
+      }
+    }
+  },
+  "license": "CC BY-NC 4.0; non-commercial use only; retain attribution.",
+  "notes": [
+    "Full public dictionaries (up to 100k entries per pair); one listed target retained per French lemma.",
+    "Words are split by French source lemma (80/10/10), preventing source-lemma overlap.",
+    "This is lexical, context-free word translation. Held-out French lemmas are OOV to the closed-vocabulary model; their scores measure that limitation, not phrase translation."
+  ]
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Traducteur expérimental multilingue</title>
+  <link rel="stylesheet" href="style.css"><script defer src="model.js"></script>
+</head>
+<body>
+  <main>
+    <header><span class="eyebrow">TRANSFORMER MULTILINGUE · EXPÉRIMENTAL</span>
+      <h1>Traduisez votre texte</h1>
+      <p>Entrez un ou plusieurs mots français. Le programme tirera lui-même une langue cible au hasard.</p></header>
+    <p class="hint">Chaque mot est traité séparément : le résultat n’adapte ni la grammaire ni l’ordre des mots.</p>
+    <section class="search-card">
+      <form id="translateForm">
+        <label for="sourceText">Texte français</label>
+        <textarea id="sourceText" maxlength="500" rows="3" placeholder="bonjour le monde" required></textarea>
+        <div class="search-row"><button id="translateButton" type="submit">Traduire</button></div>
+      </form>
+    </section>
+    <section id="result" aria-live="polite" aria-busy="false">
+      <p class="empty">La traduction et la langue choisie apparaîtront ici.</p>
+    </section>
+    <footer><span id="modelInfo">Chargement du modèle…</span><br>La correspondance MUSE vient d’un dictionnaire bilingue ; la prédiction du Transformer est affichée séparément et reste expérimentale.</footer>
+  </main>
+</body>
+</html>

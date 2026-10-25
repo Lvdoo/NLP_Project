@@ -33,27 +33,16 @@ form.addEventListener('submit', async event => {
     const original = document.createElement('p');
     original.className = 'text-block';
     original.textContent = data.source_text;
-    const referenceTitle = document.createElement('h2');
-    referenceTitle.textContent = 'Correspondances du dictionnaire MUSE';
-    const reference = document.createElement('p');
-    reference.className = 'text-block';
-    renderTokens(reference, data.reference_tokens, 'Aucune entrée correspondante dans le dictionnaire.');
     const translationTitle = document.createElement('h2');
-    translationTitle.textContent = 'Prédiction du Transformer, mot par mot (expérimentale)';
+    translationTitle.textContent = 'Traduction générée par le Transformer';
     const translation = document.createElement('p');
     translation.className = 'text-block';
-    renderTokens(translation, data.model_tokens, 'Aucune prédiction exploitable du modèle.');
-    card.append(lang, originalTitle, original, referenceTitle, reference, translationTitle, translation);
-    if (data.missing_words?.length) {
-      const missing = document.createElement('p');
-      missing.className = 'source';
-      missing.textContent = `Mots absents du dictionnaire : ${data.missing_words.join(', ')}`;
-      card.append(missing);
-    }
+    translation.textContent = data.translation || 'Le modèle n’a généré aucun texte.';
+    card.append(lang, originalTitle, original, translationTitle, translation);
     if (data.pivot_text) {
       const pivot = document.createElement('p');
       pivot.className = 'source';
-      pivot.textContent = `Étape pivot (anglais) : ${data.pivot_text}`;
+      pivot.textContent = `Étape intermédiaire en anglais : ${data.pivot_text}`;
       card.append(pivot);
     }
     result.replaceChildren(card);
@@ -73,16 +62,3 @@ function message(text) {
   return p;
 }
 
-function renderTokens(container, tokens, emptyMessage) {
-  if (!tokens?.length) {
-    container.textContent = emptyMessage;
-    return;
-  }
-  tokens.forEach((item, index) => {
-    if (index) container.append(document.createTextNode(' '));
-    const span = document.createElement('span');
-    span.className = item.available ? 'translated-token' : 'missing-token';
-    span.textContent = item.translation || `[${item.source} : indisponible]`;
-    container.append(span);
-  });
-}

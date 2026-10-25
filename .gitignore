@@ -8,3 +8,10 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Downloaded OPUS-100 corpus and generated sentence checkpoints
+data/opus100/raw/*.tar.gz
+data/opus100/raw/*.tiktoken
+data/opus100/processed/*.jsonl
+data/opus100/processed/manifest.json
+artifacts/sentence_transformer.pt

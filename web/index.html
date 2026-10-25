@@ -9,19 +9,19 @@
   <main>
     <header><span class="eyebrow">TRANSFORMER MULTILINGUE · EXPÉRIMENTAL</span>
       <h1>Traduisez votre texte</h1>
-      <p>Entrez un ou plusieurs mots français. Le programme tirera lui-même une langue cible au hasard.</p></header>
-    <p class="hint">Chaque mot est traité séparément : le résultat n’adapte ni la grammaire ni l’ordre des mots.</p>
+      <p>Entrez une phrase française. Le programme tirera lui-même une langue cible au hasard.</p></header>
+    <p class="hint">Le Transformer traduit les phrases en séquence. Pour l’allemand et l’espagnol, il passe par une étape intermédiaire en anglais.</p>
     <section class="search-card">
       <form id="translateForm">
         <label for="sourceText">Texte français</label>
-        <textarea id="sourceText" maxlength="500" rows="3" placeholder="bonjour le monde" required></textarea>
+        <textarea id="sourceText" maxlength="2000" rows="3" placeholder="Bonjour, comment allez-vous ?" required></textarea>
         <div class="search-row"><button id="translateButton" type="submit">Traduire</button></div>
       </form>
     </section>
     <section id="result" aria-live="polite" aria-busy="false">
       <p class="empty">La traduction et la langue choisie apparaîtront ici.</p>
     </section>
-    <footer><span id="modelInfo">Chargement du modèle…</span><br>La correspondance MUSE vient d’un dictionnaire bilingue ; la prédiction du Transformer est affichée séparément et reste expérimentale.</footer>
+    <footer><span id="modelInfo">Chargement du modèle…</span><br>Modèle entraîné à partir de paires de phrases OPUS-100, expérimental et dépendant des domaines du corpus.</footer>
   </main>
 </body>
 </html>
